@@ -17,9 +17,21 @@ function App() {
   const [todoList, setTodoList] = useState(ListaTodos);
   const [newItem, setNewItem] = useState("");
 
+  const [filter, setFilter] = useState("all");
+
+  const handleInputChange = (e) => {
+    setNewItem(e.target.value);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleAddItem();
+    }
+  };
+
   const handleAddItem = () => {
     if (newItem.trim() !== "") {
-      setItems([...todoList, { text: newItem, completed: false }]);
+      setTodoList([...todoList, { text: newItem, completed: false }]);
       setNewItem("");
     }
   };
@@ -35,6 +47,26 @@ function App() {
     updatedItems.splice(index, 1);
     setTodoList(updatedItems);
   };
+
+  const handleDeleteCompleted = () => {
+    const updatedItems = todoList.filter((item) => !item.completed);
+    setTodoList(updatedItems);
+  };
+
+  const countComplete = () => {
+    const completedItems = todoList.filter((item) => item.completed === false);
+    return completedItems.length;
+  };
+
+  const filteredTodos = todoList.filter((item) => {
+    if (filter === "completed") {
+      return item.completed;
+    } else if (filter === "active") {
+      return !item.completed;
+    } else {
+      return true;
+    }
+  });
 
   console.log(todoList);
   return (
@@ -60,26 +92,76 @@ function App() {
             alt="Moon illustration"
           />
         </span>
-        <input className={Styles.txtTodo} type="text"></input>
+        <div className={Styles.addTodo}>
+          <button onClick={handleAddItem}></button>
+          <input
+            placeholder="Create a new todo..."
+            className={Styles.txtTodo}
+            type="text"
+            value={newItem}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+          />
+        </div>
 
         <div className={Styles.todosItems}>
           <ul>
-            {todoList.map((item, index) => (
+            {filteredTodos.map((item, index) => (
               <li key={index}>
                 <input
                   type="checkbox"
-                  
+                  id={`customCheckbox-${item.id}`}
+                  className="customCheckbox"
                   checked={item.completed}
                   onChange={() => handleToggleComplete(index)}
                 />
-                <span> {item.text}</span>
+                <label
+                  htmlFor={`customCheckbox-${item.id}`}
+                  className="customCheckboxLabel"
+                ></label>
 
-                <button onClick={() => handleDeleteItem(index)}>x</button>
+                <span onClick={() => handleToggleComplete(index)}>
+                  {" "}
+                  {item.text}
+                </span>
+                <button onClick={() => handleDeleteItem(index)}>+</button>
               </li>
             ))}
           </ul>
-          <div></div>
+          <div className={Styles.status}>
+            <div>{countComplete()} items left</div>
+            <div
+              onClick={() => handleDeleteCompleted()}
+              className={Styles.clearCompleted}
+            >
+              Clear Completed
+            </div>
+          </div>
         </div>
+        <div className={Styles.filter}>
+          <span
+            onClick={() => setFilter("all")}
+            data-value="all"
+            className={filter === "all" ? Styles.selected : ""}
+          >
+            All
+          </span>
+          <span
+            onClick={() => setFilter("active")}
+            data-value="active"
+            className={filter === "active" ? Styles.selected : ""}
+          >
+            Active
+          </span>
+          <span
+            onClick={() => setFilter("completed")}
+            data-value="completed"
+            className={filter === "completed" ? Styles.selected : ""}
+          >
+            Completed
+          </span>
+        </div>
+        <div className={Styles.alertDragAndDrop}>Drag and drop to reordenar list</div>
       </div>
       <div className={Styles.contenedorTemplate}>
         <img
