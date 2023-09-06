@@ -28,6 +28,7 @@ Users should be able to:
 - **Bonus**: Drag and drop to reorder items on the list
 
 ### Screenshot
+![image](https://github.com/rafopm/todo-list/assets/5562967/f7364b5a-9ac7-4037-8419-c9999a3dfa6e)
 
 ### Links
 
