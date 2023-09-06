@@ -10,12 +10,12 @@ import { TestDragDrop } from "../../components/TestDragDrop";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 
 const ListaTodos = [
-  { id: 1, text: "Complete online JavaScript Course", completed: true },
-  { id: 2, text: "Jog around the park 3x", completed: false },
-  { id: 3, text: "10 minutes meditation", completed: false },
-  { id: 4, text: "Read for 1 hour", completed: false },
-  { id: 5, text: "Pick up groceries", completed: false },
-  { id: 6, text: "Complete Todo App on Frontend Mentor", completed: false },
+  { id: "1", text: "Complete online JavaScript Course", completed: true },
+  { id: "2", text: "Jog around the park 3x", completed: false },
+  { id: "3", text: "10 minutes meditation", completed: false },
+  { id: "4", text: "Read for 1 hour", completed: false },
+  { id: "5", text: "Pick up groceries", completed: false },
+  { id: "6", text: "Complete Todo App on Frontend Mentor", completed: false },
 ];
 
 const reorder = (list, startIndex, endIndex) => {
@@ -32,6 +32,7 @@ function App() {
   const [imageHeader, setImageHeader] = useState("");
   const { theme, setTheme } = useTheme();
 
+  console.log(todoList);
   let imageUrlMobile, imageUrlDesktop;
   if (theme === "dark") {
     imageUrlDesktop = "/images/bg-desktop-dark.jpg";
@@ -53,10 +54,16 @@ function App() {
 
   const handleAddItem = () => {
     if (newItem.trim() !== "") {
-      setTodoList([...todoList, { text: newItem, completed: false }]);
+      const newItemObject = {
+        id: (todoList.length + 1).toString(), // Asignar un nuevo ID único
+        text: newItem,
+        completed: false,
+      };
+      setTodoList([...todoList, newItemObject]);
       setNewItem("");
     }
   };
+  
 
   const handleToggleComplete = (index) => {
     const updatedItems = [...todoList];
@@ -176,7 +183,7 @@ function App() {
                   {filteredTodos.map((item, index) => (
                     <Draggable
                       key={item.id}
-                      draggableId={item.id}
+                      draggableId={item.id.toString()}
                       index={index}
                     >
                       {(provided, snapshot) => (
