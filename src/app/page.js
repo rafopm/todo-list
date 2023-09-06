@@ -23,14 +23,9 @@ function App() {
   const [newItem, setNewItem] = useState("");
   const [filter, setFilter] = useState("all");
   const [imageHeader, setImageHeader] = useState("");
-
-
   const { theme, setTheme } = useTheme();
-
-
-
+  
   let imageUrlMobile, imageUrlDesktop;
-
     if (theme === 'dark') {
       imageUrlDesktop = '/images/bg-desktop-dark.jpg'
       imageUrlMobile = '/images/bg-mobile-dark.jpg';
@@ -38,8 +33,6 @@ function App() {
       imageUrlDesktop = '/images/bg-desktop-light.jpg'
       imageUrlMobile = '/images/bg-mobile-light.jpg';
     }
-
-
 
   const handleInputChange = (e) => {
     setNewItem(e.target.value);
@@ -179,7 +172,13 @@ function App() {
         </div>
         
       </div>
-
+      {/* <div className={Styles.contenedorTemplate}>
+        <img
+          className={Styles.imagentemplate}
+          src="/design/desktop-design-light.jpg"
+          alt="Descripción de la imagen"
+        ></img>
+      </div> */}
 
       {/* <div className={Styles.contenedorTemplate}>
         <img

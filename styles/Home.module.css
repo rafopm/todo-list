@@ -3,7 +3,6 @@
   width: 100%;
   top: 0;
   z-index: -3;
-  
 }
 
 .contenedorTemplate {
@@ -17,13 +16,13 @@
   z-index: -1;
 }
 
-.imgDesktop{
+.imgDesktop {
   display: none;
-} 
+}
 
-.imgMobile{
+.imgMobile {
   display: block;
-} 
+}
 
 .contentIllustration {
   position: absolute;
@@ -34,7 +33,6 @@
   display: flex;
   justify-content: center;
   z-index: -2;
-
 }
 
 /* .illustration {
@@ -44,20 +42,19 @@
   background-size: cover;
 } */
 
-
 .illustration {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
   background-size: cover;
-  background-image:var(--image-header);
+  background-image: var(--image-header);
   z-index: 2;
 }
 
 .todosContainer {
   position: absolute;
-  width: 327px;
+  width: 328px;
   height: 100vh;
   top: 0;
   left: 50%;
@@ -65,7 +62,7 @@
 }
 
 .title {
-  margin-top: 31px;
+  margin-top: 32px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -81,54 +78,51 @@
 
 .addTodo {
   display: flex;
-  margin-top: 14px;
-  width: 322px;
+  margin-top: 16px;
+  width: 327px;
   height: 48px;
   border-radius: 5px;
   border: none;
   box-shadow: 0 2px 1px rgba(93, 93, 93, 0.1);
   flex-direction: row;
   align-items: center;
-  gap:10px;
+  gap: 10px;
   background-color: var(--bk-color-todo);
-  
 }
 
 .addTodo button {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 1px solid var( --btn-check);
+  border: 1px solid var(--btn-check);
   margin-left: 20px;
   background-color: transparent;
   cursor: pointer;
 }
 
 .txtTodo {
-  
   border: none;
   outline: none;
   background: transparent;
-  
+
   font-size: 12px;
-  font-family: 'Josefin Sans', italic;
+  font-family: "Josefin Sans", italic;
 }
 
 .todosItems {
-  margin-top: 18px;
-  width: 325px;
+  margin-top: 17px;
+  width: 327px;
   border-radius: 5px;
   background-color: var(--bk-color-todo);
   box-shadow: 0.5px 5px 3px rgba(93, 93, 93, 0.1);
 }
 
 .todosItems ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    width: 327px;
-  }
-
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 327px;
+}
 
 .status {
   position: relative;
@@ -140,17 +134,16 @@
   font-size: 11px;
   padding: 0 10px 0px 10px;
   margin-top: 1px;
-  height: 48px;
-  color: var(--light-grayish-blue);
+  height: 49px;
+  color: var(--dark-grayish-blue);
 }
 
 .clearCompleted {
   cursor: pointer;
-  
 }
 
 .filter {
-  margin-top: 15px;
+  margin-top: 12px;
   width: 327px;
   height: 48px;
   display: flex;
@@ -164,28 +157,26 @@
   color: var(--dark-grayish-blue);
   background-color: var(--bk-color-todo);
   border-radius: 5px;
-  
 }
 
-.filter span{
-    cursor: pointer;
+.filter span {
+  cursor: pointer;
 }
 
 .selected {
   color: var(--blue);
 }
 
-.alertDragAndDrop{
-    margin-top: 45px;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--dark-grayish-blue);
+.alertDragAndDrop {
+  margin-top: 45px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dark-grayish-blue);
 }
 
 @media screen and (min-width: 541px) {
   .todosContainer {
-
     width: 541px;
   }
 
@@ -196,13 +187,67 @@
     height: 300px;
   }
 
-  
-.imgDesktop{
-  display: block;
-} 
+  .imgDesktop {
+    display: block;
+  }
 
-.imgMobile{
-  display: none;
-} 
+  .imgMobile {
+    display: none;
+  }
 
+  .title {
+    margin-top: 53px;
+  }
+
+  .title h1 {
+    font-size: 38px;
+    letter-spacing: 17px;
+  }
+
+  .addTodo {
+    display: flex;
+    margin-top: 16px;
+    width: 540px;
+    height: 62px;
+  }
+
+  .addTodo button {
+    width: 25px;
+    height: 25px;
+    margin-left: 24px;
+  }
+
+  .txtTodo {
+    margin-left: 12px;
+    font-size: 18px;
+    letter-spacing: -0.3px;
+  }
+
+  .todosItems {
+    margin-top: 25px;
+    width: 541px;
+  }
+
+  .status {
+    font-size: 14px;
+  }
+
+  .filter {
+    margin-top: -58px;
+    background-color: transparent;
+    box-shadow: none;
+    font-size: 14px;
+    margin-left: 110px;
+    gap: 18px;
+    z-index: 5;
+  }
+
+  .filter span {
+    cursor: pointer;
+    z-index: 6;
+  }
+
+  .alertDragAndDrop {
+    margin-top: 55px;
+  }
 }

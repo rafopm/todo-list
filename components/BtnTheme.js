@@ -35,7 +35,16 @@ const BtnTheme = () => {
       width={20}
       height={20}
       alt="Icon theme"
+      className={Styles.btnIconThemeMobile}
       />
+            <Image
+      src={imageTheme}
+      width={25}
+      height={25}
+      alt="Icon theme"
+      className={Styles.btnIconThemeDesktop}
+      />
+
     </button>
   );
 };

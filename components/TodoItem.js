@@ -17,7 +17,7 @@ const TodoItem = ({ item, index, handleToggleComplete, handleDeleteItem }) => {
         className="customCheckboxLabel"
       ></label>
 
-      <span onClick={() => handleToggleComplete(index)} style={item.completed ? { textDecorationLine: "line-through" } : {}}> {item.text}</span>
+      <span onClick={() => handleToggleComplete(index)} style={item.completed ? { textDecorationLine: "line-through",  opacity: "0.5" } : {}}> {item.text}</span>
       <button onClick={() => handleDeleteItem(index)}>
         <Image src="/images/icon-cross.svg" 
         width={12}

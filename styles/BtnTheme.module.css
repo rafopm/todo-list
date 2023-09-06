@@ -1,5 +1,28 @@
-.btnTheme{
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+.btnTheme {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 26px;
+}
+
+.btnIconThemeMobile {
+  display: block;
+}
+
+.btnIconThemeDesktop {
+  display: none;
+}
+
+@media screen and (min-width: 541px) {
+  .btnTheme {
+    width: 32px;
+  }
+
+  .btnIconThemeMobile {
+    display: none;
+  }
+
+  .btnIconThemeDesktop {
+    display: block;
+  }
 }

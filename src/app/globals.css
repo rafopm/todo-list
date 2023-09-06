@@ -41,7 +41,8 @@ body {
   --bk-color-todo: var(--very-dark-desaturated-blue);
   --head: var(--very-dark-desaturated-blue);
   --btn-check:var(--very-dark-grayish-blue-dark);
-  --head-image:('/images/bg-mobile-dark.jpg')
+
+  --line-todo:var(--very-dark-grayish-blue-dark);
 }
 
 .light body {
@@ -51,7 +52,8 @@ body {
   --bk-color-todo:white;
   --head: var(--blue);
   --btn-check:var(--light-grayish-blue);
-  --head-image:('/images/bg-mobile-dark.jpg')
+
+  --line-todo:var(--very-light-grayish-blue);
 }
 
 /* [data-theme='dark'] {
