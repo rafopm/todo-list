@@ -1,45 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,400;1,700&display=swap");
 
 :root {
+  --background-light: white;
+  --foreground-light: black;
+  --background5555: hsl(236, 33%, 92%);
 
+  /* Ligth */
   --very-light-gray: hsl(0, 0%, 98%);
   --very-light-grayish-blue: hsl(236, 33%, 92%);
   --light-grayish-blue: hsl(233, 11%, 84%);
   --dark-grayish-blue: hsl(236, 9%, 61%);
   --very-dark-grayish-blue: hsl(235, 19%, 35%);
 
+  /* Dark */
+  --very-dark-blue: hsl(235, 21%, 11%);
+  --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  --light-grayish-blue-dark: hsl(234, 39%, 85%);
+  --light-grayish-blue-hover-dark: hsl(236, 33%, 92%);
+  --dark-grayish-blue-dark: hsl(234, 11%, 52%);
+  --very-dark-grayish-blue-dark: hsl(233, 14%, 35%);
+  --very-dark-grayish-blue: hsl(237, 14%, 26%);
   --blue: hsl(220, 98%, 61%);
-  
-  --background-color: linear-gradient(to right,
+
+  --gradient-blue-pink: linear-gradient(to right,
     hsl(192, 100%, 67%),
     hsl(280, 87%, 65%)
   );
 }
 
 body {
-  color: var(--foreground-rgb);
-  background-color: var(--background-color);
-  font-family: 'Josefin Sans', sans-serif;
+  background: var(--very-light-grayish-blue);
+  color: var(--very-dark-grayish-blue);
+  font-family: "Josefin Sans", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --very-dark-blue: hsl(235, 21%, 11%);
-    --very-dark-desaturated-blue: hsl(235, 24%, 19%);
-    --light-grayish-blue: hsl(234, 39%, 85%);
-    --light-grayish-blue-hover: hsl(236, 33%, 92%);
-    --dark-grayish-blue: hsl(234, 11%, 52%);
-    --very-dark-grayish-blue: hsl(233, 14%, 35%);
-    --very-dark-grayish-blue: hsl(237, 14%, 26%);
-    --background-color-dark: linear-gradient(
-      to right,
-      hsl(192, 100%, 67%),
-      hsl(280, 87%, 65%)
-    );
-  }
+.dark body {
+  background-color: var(--very-dark-blue);
+  color: var(--light-grayish-blue-hover-dark);
+  font-family: "Josefin Sans", sans-serif;
+  --bk-color-todo: var(--very-dark-desaturated-blue);
+  --head: var(--very-dark-desaturated-blue);
+  --btn-check:var(--very-dark-grayish-blue-dark);
+  --head-image:('/images/bg-mobile-dark.jpg')
+}
 
+.light body {
+  background: var(--very-light-grayish-blue);
+  color: var(--very-dark-grayish-blue);
+  font-family: "Josefin Sans", sans-serif;
+  --bk-color-todo:white;
+  --head: var(--blue);
+  --btn-check:var(--light-grayish-blue);
+  --head-image:('/images/bg-mobile-dark.jpg')
+}
+
+/* [data-theme='dark'] {
+  --background-dark: black; 
+  --foreground-dark: white; 
+} */
+
+@media (prefers-color-scheme: dark) {
   body {
-    color: var(--foreground-rgb);
-    background: var(--very-dark-blue);
+    color: var(--light-grayish-blue-hover-dark);
   }
 }

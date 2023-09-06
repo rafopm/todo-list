@@ -1,8 +1,13 @@
 "use client";
 import Styles from "../../styles/Home.module.css";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import TodoItem from "../../components/TodoItem";
+import BtnTheme from "../../components/BtnTheme";
+import { useTheme } from "next-themes";
+
+
 
 const ListaTodos = [
   { id: 1, text: "Complete online JavaScript Course", completed: true },
@@ -16,8 +21,25 @@ const ListaTodos = [
 function App() {
   const [todoList, setTodoList] = useState(ListaTodos);
   const [newItem, setNewItem] = useState("");
-
   const [filter, setFilter] = useState("all");
+  const [imageHeader, setImageHeader] = useState("");
+
+
+  const { theme, setTheme } = useTheme();
+
+
+
+  let imageUrlMobile, imageUrlDesktop;
+
+    if (theme === 'dark') {
+      imageUrlDesktop = '/images/bg-desktop-dark.jpg'
+      imageUrlMobile = '/images/bg-mobile-dark.jpg';
+    } else {
+      imageUrlDesktop = '/images/bg-desktop-light.jpg'
+      imageUrlMobile = '/images/bg-mobile-light.jpg';
+    }
+
+
 
   const handleInputChange = (e) => {
     setNewItem(e.target.value);
@@ -68,29 +90,34 @@ function App() {
     }
   });
 
-  console.log(todoList);
   return (
-    <div className={Styles.container}>
+    <div className={Styles.container} >
       <div className={Styles.contentIllustration}>
         <Image
           width={375}
           height={200}
-          src="/images/bg-mobile-dark.jpg"
+          src={imageUrlMobile}
           alt="Bg mobile dark illustration"
+          priority={true}
+          className={Styles.imgMobile}
         />
-
+        <Image
+          width={1440}
+          height={300}
+          src={imageUrlDesktop}
+          alt="Bg mobile dark illustration"
+          priority={true}
+          className={Styles.imgDesktop}
+        />
         <div className={Styles.illustration}></div>
       </div>
 
       <div className={Styles.todosContainer}>
         <span className={Styles.title}>
-          <h1>TODO</h1>{" "}
-          <Image
-            width={20}
-            height={20}
-            src="/images/icon-moon.svg"
-            alt="Moon illustration"
-          />
+          <h1>TODO</h1>
+          <BtnTheme >
+         
+          </BtnTheme>
         </span>
         <div className={Styles.addTodo}>
           <button onClick={handleAddItem}></button>
@@ -105,29 +132,15 @@ function App() {
         </div>
 
         <div className={Styles.todosItems}>
-          <ul>
-            {filteredTodos.map((item, index) => (
-              <li key={index}>
-                <input
-                  type="checkbox"
-                  id={`customCheckbox-${item.id}`}
-                  className="customCheckbox"
-                  checked={item.completed}
-                  onChange={() => handleToggleComplete(index)}
-                />
-                <label
-                  htmlFor={`customCheckbox-${item.id}`}
-                  className="customCheckboxLabel"
-                ></label>
-
-                <span onClick={() => handleToggleComplete(index)}>
-                  {" "}
-                  {item.text}
-                </span>
-                <button onClick={() => handleDeleteItem(index)}>+</button>
-              </li>
-            ))}
-          </ul>
+        {filteredTodos.map((item, index) => (
+          <TodoItem
+            key={index}
+            item={item}
+            index={index}
+            handleToggleComplete={handleToggleComplete}
+            handleDeleteItem={handleDeleteItem}
+          />
+        ))}
           <div className={Styles.status}>
             <div>{countComplete()} items left</div>
             <div
@@ -161,15 +174,20 @@ function App() {
             Completed
           </span>
         </div>
-        <div className={Styles.alertDragAndDrop}>Drag and drop to reordenar list</div>
+        <div className={Styles.alertDragAndDrop}>
+          Drag and drop to reordenar list
+        </div>
+        
       </div>
-      <div className={Styles.contenedorTemplate}>
+
+
+      {/* <div className={Styles.contenedorTemplate}>
         <img
           className={Styles.imagentemplate}
           src="/design/mobile-design-light.jpg"
           alt="Descripción de la imagen"
         ></img>
-      </div>
+      </div> */}
     </div>
   );
 }

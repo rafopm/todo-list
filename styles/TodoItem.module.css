@@ -1,0 +1,102 @@
+
+.todoItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 52px;
+    font-size: 11px;
+    font-weight: 700;
+    gap: 10px;
+    border-bottom: 1px solid var(--very-dark-grayish-blue);
+  }
+  
+  /* Ocultar checkbox*/
+  .todoItem input[type="checkbox"] {
+    position: absolute; 
+    opacity: 0; 
+  }
+  
+  .todoItem input[type="checkbox"] + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 16px;
+    margin-right: 4px;
+    border: solid 0.5px;
+    border-radius: 50%;
+    border-color: var(--light-grayish-blue);
+  }
+  
+  /* Aspecto del cuadro */
+  .todoItem input[type="checkbox"] + label:before {
+    content: "";
+    border: solid 0.5px;
+    border-color: var(--light-grayish-blue);
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    color: var(--very-dark-grayish-blue);
+  }
+  
+  /* Cambios en el cuadro al pasar el cursor */
+  .todoItem input[type="checkbox"]:hover + label:before {
+    background: white;
+  }
+  
+  /* Cambios en el cuadro al enfocar */
+  .todoItem input[type="checkbox"]:focus + label:before {
+    box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Cambios en el cuadro cuando está marcado */
+  .todoItem input[type="checkbox"]:checked + label:before {
+    background-image: var(--gradient-blue-pink);
+  }
+  
+  /* Estado deshabilitado de la etiqueta */
+  .todoItem input[type="checkbox"]:disabled + label {
+    color: #b8b8b8;
+    cursor: auto;
+  }
+  
+  /* Cuadro deshabilitado */
+  .todoItem input[type="checkbox"]:disabled + label:before {
+    box-shadow: none;
+    background: #ddd;
+  }
+  
+  /* Marca de verificación. Puede ser reemplazada por una imagen */
+  .todoItem input[type="checkbox"]:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white,
+      4px -6px 0 white, 4px -8px 0 white;
+    transform: rotate(45deg);
+  }
+  
+  /* FIN DEL CHECKBOX PERSONALIZADO */
+  /* =========================== */
+  
+  .todoItem span {
+    width: 225px;
+    cursor: pointer;
+    color: var(--dark-grayish-blue);
+  }
+  
+  .todoItem button {
+ 
+    border: none;
+    background-color: transparent;
+
+    color: var(--light-grayish-blue);
+    cursor: pointer;
+
+  }
