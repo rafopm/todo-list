@@ -51,4 +51,4 @@ Use of useState and components in React, styles in css and structure in html. Pe
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/rafopm)
+- Frontend Mentor - [@rafopm](https://www.frontendmentor.io/profile/rafopm)
